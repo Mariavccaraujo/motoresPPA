@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de Automatizadores para Portões</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#FF7A00;
+    --navy:#0D0D0D;
+    --bg:#F4F4F4;
+    --card:#FFFFFF;
+    --ink:#222222;
+    --muted:#555555;
+    --line:#DDDDDD;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Poppins",sans-serif;background:var(--bg);color:var(--ink);line-height:1.5}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* Cabeçalho Laranja com Logo PPA */
+  header{background:var(--orange);color:#fff;padding:25px 0;margin-bottom:20px}
+  .header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+  .logo-box{background:#fff;padding:8px 15px;border-radius:8px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .logo-box img{height:35px;display:block}
+  .logo-fallback{display:none;font-weight:700;font-size:22px;color:var(--navy);letter-spacing:2px}
+  header h1{font-size:22px;font-weight:700;margin-bottom:2px}
+  header p{color:#fff;opacity:0.9;font-size:13px}
+
+  /* Filtros e Busca */
+  .toolbar{background:#fff;border-bottom:1px solid var(--line);padding:15px 0;margin-bottom:30px}
+  .toolbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+  .tabs{display:flex;gap:8px;flex-wrap:wrap}
+  .tab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 14px;border-radius:6px;font:500 13px "Poppins",sans-serif;cursor:pointer}
+  .tab.active{background:var(--orange);border-color:var(--orange);color:#fff}
+  .tools input{padding:7px 12px;border:1px solid var(--line);border-radius:6px;font:13px "Poppins",sans-serif;outline:none;width:220px}
+
+  /* Listagem e Cards */
+  main{padding-bottom:50px}
+  section{margin-bottom:40px}
+  .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:15px;border-bottom:2px solid var(--line);padding-bottom:8px}
+  .sec-head h2{font-size:18px;font-weight:600}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
+  
+  /* Div para as imagens dos motores */
+  .photo{width:100%;height:160px;background:#E9ECEF;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line)}
+  .photo img{width:100%;height:100%;object-fit:contain;padding:10px;background:#fff}
+  .photo-placeholder{font-size:12px;color:var(--muted);font-weight:500}
+
+  .body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}
+  
+  /* Descrição do motor com destaque aprimorado */
+  .card h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
+  .full{font-size:12px;color:var(--muted);line-height:1.4}
+  
+  .code{font-size:11px;background:#eee;padding:2px 6px;border-radius:4px;display:inline-block;font-family:monospace;align-self:flex-start}
+  .specs{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
+  .price{font-size:20px;font-weight:700;color:var(--navy);margin-top:5px}
+  .price span{font-size:12px;font-weight:400;color:var(--muted);margin-right:2px}
+
+  .empty{text-align:center;color:var(--muted);padding:40px 0;display:none}
+
+  /* Rodapé com WhatsApp */
+  footer{background:var(--navy);color:#fff;padding:30px 0;margin-top:40px;font-size:13px}
+  .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
+  .whatsapp-btn:hover{background:#20ba5a}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-content">
+    <div>
+      <h1>Catálogo de Automatizadores</h1>
+      <p>Tabela simplificada de produtos e preços</p>
+    </div>
+    <div class="logo-box">
+      <img class="logo" alt="PPA" data-logo>
+      <div class="logo-fallback">PPA</div>
+    </div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="wrap">
+    <div class="tabs" id="tabs">
+      <button class="tab active" data-f="all">Todos</button>
+      <button class="tab" data-f="ind">Industrial</button>
+      <button class="tab" data-f="semi">Semi-industrial</button>
+      <button class="tab" data-f="res">Residencial</button>
+    </div>
+    <div class="tools">
+      <input id="q" type="search" placeholder="Buscar modelo...">
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="app"></main>
+<div class="wrap"><div class="empty" id="empty">Nenhum produto encontrado.</div></div>
+
+<footer>
+  <div class="wrap footer-content">
+    <div>
+      <p>Catálogo de revenda · Valores sujeitos a alteração sem aviso prévio.</p>
+      <p style="color:#aaa; font-size:12px; margin-top:4px;">PPA é marca de seu respectivo titular.</p>
+    </div>
+    <a href="https://wa.me/5584920208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
+      Falar no WhatsApp (84) 92020-8889
+    </a>
+  </div>
+</footer>
+
+<script>
+const LOGOS = ["https://www.ppa.com.br/_nuxt/logo.f9ff4513.png","logo-ppa.png"];
+
+const GROUPS = {
+  ind:  {name:"Linha Industrial"},
+  semi: {name:"Linha Semi-industrial"},
+  res:  {name:"Linha Residencial"}
+};
+
+
+const P = [
+  {g:"ind", name:"Brutalle 3.0T SP", full:"CONJ. AUT DE PORTOES E PORTAS DZ BRUTALLE 3.0T SP", code:"", price:4116.06, kg:2500, cyc:150, sec:5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhHcYWM-qXBuxRzYSGpA9CKp6BK7WzTWxLwVMMaH1GrA&s=10"},
+  {g:"ind", name:"DZ 1500 JetFlex Connect – Silver", full:"DZ 1500 INDUSTRIAL JET FLEX CENTRAL JETFLEX CONNECT SP", code:"F06264041", price:2293.80, kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1500 JetFlex Connect – Gold", full:"DZ 1500 INDUSTRIAL JETFLEX CONNECT SP", code:"F06264039", price:2317.94, kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1400 Jet FullRange – Gold", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994007", price:1786.94, kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1400 Jet FullRange – Silver", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994005", price:1752.80, kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Gold", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM GOLD", code:"F06974007", price:1528.05, kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Silver", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM SILVER", code:"F06974005", price:1504.61, kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Silver", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", price:1102.86, kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Gold", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", price:1159.86, kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 600 Jet Flex Full Range", full:"DZ RIO 600 JET FLEX FULL RANGE", code:"F02574025", price:1009.77, kg:600, cyc:50, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 500 JetFlex Facility", full:"DZ RIO 500 JETFLEX FACILITY", code:"F02504050", price:686.13, kg:500, cyc:40, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 450 Legero", full:"DZ RIO 450 LEGERO", code:"F02504050", price:598.39, kg:400, cyc:30, sec:6.5, imgSrc:"https://media.ppa.com.br/images/medium/DZ_RIO_PREDIAL_LEGERO_1680610190593.webp"},
+  {g:"res", name:"DZ Stark 450 JetFlex Facility", full:"DZ STARK 450 JETFLEX FACILITY", code:"F02252408", price:638.45, kg:400, cyc:20, sec:5.5, imgSrc:"https://media.ppa.com.br/images/medium/PPA-Dz-Stark-Jetflex_500-x-500-1_1786648210838.webp"},
+  {g:"res", name:"DZ Stark 400 Agility Pop", full:"DZ STARK 400 AGILITY POP", code:"F02243208", price:369.67, kg:300, cyc:15, sec:12.5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuADypJBlocwLwjwtRTeHXCFy15N_1krUoQltBeOtOpA&s=10"}
+];
+
+P.forEach((p,i)=>{
+  p.slug = p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
+});
+
+const brl = v => v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
+
+function card(p){
+  return `<article class="card">
+    <div class="photo">
+      <span class="photo-placeholder">Foto do Motor</span>
+      <img alt="${p.name}" data-photo="${p.slug}" ${p.imgSrc ? `data-src="${p.imgSrc}"` : ""} hidden>
+    </div>
+    <div class="body">
+      <h3>${p.name}</h3>
+      <div class="full">${p.full}</div>
+      <div><span class="code">Cód: ${p.code || "—"}</span></div>
+      <div class="specs">Tração: <b>${p.kg} kg</b> | Ciclos: <b>${p.cyc}/h</b> | Abertura: <b>${p.sec}s</b></div>
+      <div class="price"><span>R$</span>${brl(p.price)}</div>
+    </div>
+  </article>`;
+}
+
+const app = document.getElementById("app");
+const empty = document.getElementById("empty");
+let filter = "all", query = "";
+
+function loadPhotos(){
+  app.querySelectorAll("img[data-photo]").forEach(img=>{
+    if (img.dataset.src) {
+      img.src = img.dataset.src;
+      img.onload = () => { 
+        img.hidden = false; 
+        if (img.previousElementSibling) img.previousElementSibling.style.display = "none"; 
+      };
+      return;
+    }
+
+    const exts=["jpg","png","webp"]; let n=0;
+    const next=()=>{ 
+      if(n>=exts.length) return; 
+      img.src=`fotos/${img.dataset.photo}.${exts[n++]}`; 
+    };
+    img.onload=()=>{ 
+      img.hidden = false; 
+      if (img.previousElementSibling) img.previousElementSibling.style.display = "none"; 
+    };
+    img.onerror = next; 
+    next();
+  });
+}
+
+function render(){
+  const q = query.trim().toLowerCase();
+  let html = "", total = 0;
+  
+  for(const key of ["ind","semi","res"]){
+    if(filter !== "all" && filter !== key) continue;
+    let items = P.filter(p => p.g === key && (!q || (p.name + " " + p.full + " " + p.code).toLowerCase().includes(q)));
+    if(!items.length) continue;
+    total += items.length;
+    html += `<section>
+      <div class="sec-head"><h2>${GROUPS[key].name}</h2><span>${items.length} iten(s)</span></div>
+      <div class="grid">${items.map(card).join("")}</div>
+    </section>`;
+  }
+  app.innerHTML = html;
+  empty.style.display = total ? "none" : "block";
+  loadPhotos();
+}
+
+document.getElementById("tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if(!b) return;
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  b.classList.add("active"); filter = b.dataset.f; render();
+});
+
+document.getElementById("q").addEventListener("input", e => { query = e.target.value; render(); });
+
+// Carregar logo da PPA
+document.querySelectorAll("img[data-logo]").forEach(img=>{
+  let n=0;
+  const next=()=>{
+    if(n>=LOGOS.length){ img.style.display="none"; const f=img.nextElementSibling; if(f) f.style.display="block"; return; }
+    img.src=LOGOS[n++];
+  };
+  img.onerror=next; next();
+});
+
+render();
+</script>
+</body>
+</html>
