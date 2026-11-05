@@ -60,8 +60,6 @@
   
   .code{font-size:11px;background:#eee;padding:2px 6px;border-radius:4px;display:inline-block;font-family:monospace;align-self:flex-start}
   .specs{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
-  .price{font-size:20px;font-weight:700;color:var(--navy);margin-top:5px}
-  .price span{font-size:12px;font-weight:400;color:var(--muted);margin-right:2px}
 
   .empty{text-align:center;color:var(--muted);padding:40px 0;display:none}
 
@@ -127,27 +125,25 @@ const GROUPS = {
 
 
 const P = [
-  {g:"ind", name:"Brutalle 3.0T SP", full:"CONJ. AUT DE PORTOES E PORTAS DZ BRUTALLE 3.0T SP", code:"", price:4116.06, kg:2500, cyc:150, sec:5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhHcYWM-qXBuxRzYSGpA9CKp6BK7WzTWxLwVMMaH1GrA&s=10"},
-  {g:"ind", name:"DZ 1500 JetFlex Connect – Silver", full:"DZ 1500 INDUSTRIAL JET FLEX CENTRAL JETFLEX CONNECT SP", code:"F06264041", price:2293.80, kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"ind", name:"DZ 1500 JetFlex Connect – Gold", full:"DZ 1500 INDUSTRIAL JETFLEX CONNECT SP", code:"F06264039", price:2317.94, kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"ind", name:"DZ 1400 Jet FullRange – Gold", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994007", price:1786.94, kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"ind", name:"DZ 1400 Jet FullRange – Silver", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994005", price:1752.80, kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Gold", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM GOLD", code:"F06974007", price:1528.05, kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Silver", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM SILVER", code:"F06974005", price:1504.61, kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
-  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Silver", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", price:1102.86, kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
-  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Gold", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", price:1159.86, kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
-  {g:"res", name:"DZ Rio 600 Jet Flex Full Range", full:"DZ RIO 600 JET FLEX FULL RANGE", code:"F02574025", price:1009.77, kg:600, cyc:50, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
-  {g:"res", name:"DZ Rio 500 JetFlex Facility", full:"DZ RIO 500 JETFLEX FACILITY", code:"F02504050", price:686.13, kg:500, cyc:40, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
-  {g:"res", name:"DZ Rio 450 Legero", full:"DZ RIO 450 LEGERO", code:"F02504050", price:598.39, kg:400, cyc:30, sec:6.5, imgSrc:"https://media.ppa.com.br/images/medium/DZ_RIO_PREDIAL_LEGERO_1680610190593.webp"},
-  {g:"res", name:"DZ Stark 450 JetFlex Facility", full:"DZ STARK 450 JETFLEX FACILITY", code:"F02252408", price:638.45, kg:400, cyc:20, sec:5.5, imgSrc:"https://media.ppa.com.br/images/medium/PPA-Dz-Stark-Jetflex_500-x-500-1_1786648210838.webp"},
-  {g:"res", name:"DZ Stark 400 Agility Pop", full:"DZ STARK 400 AGILITY POP", code:"F02243208", price:369.67, kg:300, cyc:15, sec:12.5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuADypJBlocwLwjwtRTeHXCFy15N_1krUoQltBeOtOpA&s=10"}
+  {g:"ind", name:"Brutalle 3.0T SP", full:"CONJ. AUT DE PORTOES E PORTAS DZ BRUTALLE 3.0T SP", code:"", kg:2500, cyc:150, sec:5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhHcYWM-qXBuxRzYSGpA9CKp6BK7WzTWxLwVMMaH1GrA&s=10"},
+  {g:"ind", name:"DZ 1500 JetFlex Connect – Silver", full:"DZ 1500 INDUSTRIAL JET FLEX CENTRAL JETFLEX CONNECT SP", code:"F06264041", kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1500 JetFlex Connect – Gold", full:"DZ 1500 INDUSTRIAL JETFLEX CONNECT SP", code:"F06264039", kg:1200, cyc:100, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1400 Jet FullRange – Gold", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994007", kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"ind", name:"DZ 1400 Jet FullRange – Silver", full:"CJ DZ 1400 IND JET FULLRANGE DISPLAY Z17", code:"F06994005", kg:1100, cyc:80, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Gold", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM GOLD", code:"F06974007", kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Condominium 900 JetFlex Full – Silver", full:"DZ CONDOMINIUM 900 JETFLEX FULL C/ CREM SILVER", code:"F06974005", kg:700, cyc:60, sec:4, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx3nuZDfuFla1vG-U0ufJnOSpp7OsZb-1ZcDZ-1mC5hA&s=10"},
+  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Silver", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"semi", name:"DZ Rio R 800 Jet Flex Full Range – Gold", full:"DZ RIO R 800 JET FLEX FULL RANGE", code:"", kg:800, cyc:70, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 600 Jet Flex Full Range", full:"DZ RIO 600 JET FLEX FULL RANGE", code:"F02574025", kg:600, cyc:50, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 500 JetFlex Facility", full:"DZ RIO 500 JETFLEX FACILITY", code:"F02504050", kg:500, cyc:40, sec:4, imgSrc:"https://media.ppa.com.br/images/medium/DZ-RIO-MONO_1764621200270.webp"},
+  {g:"res", name:"DZ Rio 450 Legero", full:"DZ RIO 450 LEGERO", code:"F02504050", kg:400, cyc:30, sec:6.5, imgSrc:"https://media.ppa.com.br/images/medium/DZ_RIO_PREDIAL_LEGERO_1680610190593.webp"},
+  {g:"res", name:"DZ Stark 450 JetFlex Facility", full:"DZ STARK 450 JETFLEX FACILITY", code:"F02252408", kg:400, cyc:20, sec:5.5, imgSrc:"https://media.ppa.com.br/images/medium/PPA-Dz-Stark-Jetflex_500-x-500-1_1786648210838.webp"},
+  {g:"res", name:"DZ Stark 400 Agility Pop", full:"DZ STARK 400 AGILITY POP", code:"F02243208", kg:300, cyc:15, sec:12.5, imgSrc:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuADypJBlocwLwjwtRTeHXCFy15N_1krUoQltBeOtOpA&s=10"}
 ];
 
 P.forEach((p,i)=>{
   p.slug = p.name.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 });
-
-const brl = v => v.toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2});
 
 function card(p){
   return `<article class="card">
@@ -160,7 +156,6 @@ function card(p){
       <div class="full">${p.full}</div>
       <div><span class="code">Cód: ${p.code || "—"}</span></div>
       <div class="specs">Tração: <b>${p.kg} kg</b> | Ciclos: <b>${p.cyc}/h</b> | Abertura: <b>${p.sec}s</b></div>
-      <div class="price"><span>R$</span>${brl(p.price)}</div>
     </div>
   </article>`;
 }
