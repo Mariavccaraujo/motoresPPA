@@ -24,13 +24,13 @@
   /* Cabeçalho Laranja com Logo PPA */
   header{background:var(--orange);color:#fff;padding:25px 0;margin-bottom:0}
   .header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-  .logo-box{background:#fff;padding:2px 20px;border-radius:8px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
-  .logo-box img{height:65px;display:block}
+  .logo-box{background:#fff;padding:8px 15px;border-radius:8px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
+  .logo-box img{height:35px;display:block}
   .logo-fallback{display:none;font-weight:700;font-size:22px;color:var(--navy);letter-spacing:2px}
   header h1{font-size:22px;font-weight:700;margin-bottom:2px}
   header p{color:#fff;opacity:0.9;font-size:13px}
 
-  /* Faixa da distribuidora  GPA */
+  /* Faixa da distribuidora Grupo GPA */
   .distrib{background:#fff;border-bottom:3px solid var(--orange);padding:16px 0;margin-bottom:20px}
   .distrib .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
   .distrib-text{flex:1;min-width:240px}
@@ -42,11 +42,13 @@
 
   /* Filtros e Busca */
   .toolbar{background:#fff;border-bottom:1px solid var(--line);padding:15px 0;margin-bottom:30px}
-  .toolbar .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
-  .tabs{display:flex;gap:8px;flex-wrap:wrap}
-  .tab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:6px 14px;border-radius:6px;font:500 13px "Poppins",sans-serif;cursor:pointer}
+  .toolbar .wrap{display:block}
+  .tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}
+  .tab{border:1px solid var(--line);background:#fff;color:var(--ink);padding:10px 14px;border-radius:6px;font:500 13px "Poppins",sans-serif;cursor:pointer;text-align:center;width:100%}
   .tab.active{background:var(--orange);border-color:var(--orange);color:#fff}
-  .tools input{padding:7px 12px;border:1px solid var(--line);border-radius:6px;font:13px "Poppins",sans-serif;outline:none;width:220px}
+  .tools{display:block}
+  .tools input{display:block;width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:6px;font:14px "Poppins",sans-serif;outline:none}
+  .tools input:focus{border-color:var(--orange)}
 
   /* Listagem e Cards */
   main{padding-bottom:50px}
@@ -86,6 +88,21 @@
   .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
   .whatsapp-btn:hover{background:#20ba5a}
   .footer-bottom{border-top:1px solid #333;padding:14px 0;font-size:12px;color:#9A9A9A}
+
+  /* Responsivo (celular) */
+  @media (max-width:640px){
+    .wrap{padding:0 14px}
+    header{padding:18px 0}
+    header h1{font-size:18px}
+    .logo-box img{height:30px}
+    .distrib-link{width:100%;justify-content:center}
+    .tabs{grid-template-columns:repeat(2,1fr)}
+    .tools input{font-size:16px}
+    .grid{grid-template-columns:1fr}
+    .footer-top{padding:24px 14px}
+    .footer-brand{flex-direction:column;align-items:flex-start;gap:12px}
+    .whatsapp-btn{width:100%;justify-content:center}
+  }
 </style>
 </head>
 <body>
@@ -109,7 +126,7 @@
     <div class="distrib-text">
       <span class="label">Distribuidora</span>
       <h2>Produtos distribuídos pelo Grupo GPA</h2>
-      <p>Todos os automatizadores deste catálogo são fornecidos pela distribuidora GrupoGPA.</p>
+      <p>Todos os automatizadores deste catálogo são fornecidos pela distribuidora Grupo GPA.</p>
     </div>
     <a class="distrib-link" href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">Conheça a distribuidora →</a>
   </div>
@@ -144,8 +161,8 @@
         <a href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">Conheça a distribuidora →</a>
       </p>
     </div>
-    <a href="https://wa.me/558420208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
-      Falar no WhatsApp (84) 2020-8889
+    <a href="https://wa.me/5584920208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
+      Falar no WhatsApp (84) 92020-8889
     </a>
   </div>
   <div class="footer-bottom">
