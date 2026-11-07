@@ -22,13 +22,23 @@
   .wrap{max-width:1200px;margin:0 auto;padding:0 20px}
 
   /* Cabeçalho Laranja com Logo PPA */
-  header{background:var(--orange);color:#fff;padding:25px 0;margin-bottom:20px}
+  header{background:var(--orange);color:#fff;padding:25px 0;margin-bottom:0}
   .header-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
   .logo-box{background:#fff;padding:8px 15px;border-radius:8px;display:flex;align-items:center;box-shadow:0 2px 8px rgba(0,0,0,0.1)}
   .logo-box img{height:35px;display:block}
   .logo-fallback{display:none;font-weight:700;font-size:22px;color:var(--navy);letter-spacing:2px}
   header h1{font-size:22px;font-weight:700;margin-bottom:2px}
   header p{color:#fff;opacity:0.9;font-size:13px}
+
+  /* Faixa da distribuidora Grupo GPA */
+  .distrib{background:#fff;border-bottom:3px solid var(--orange);padding:16px 0;margin-bottom:20px}
+  .distrib .wrap{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .distrib-text{flex:1;min-width:240px}
+  .distrib-text .label{font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange)}
+  .distrib-text h2{font-size:17px;font-weight:700;color:var(--navy);line-height:1.3}
+  .distrib-text p{font-size:13px;color:var(--muted);margin-top:2px}
+  .distrib-link{display:inline-flex;align-items:center;gap:6px;background:var(--navy);color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:background .2s}
+  .distrib-link:hover{background:var(--orange)}
 
   /* Filtros e Busca */
   .toolbar{background:#fff;border-bottom:1px solid var(--line);padding:15px 0;margin-bottom:30px}
@@ -46,28 +56,36 @@
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
 
   .card{background:var(--card);border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
-  
+
   /* Div para as imagens dos motores */
   .photo{width:100%;height:160px;background:#E9ECEF;display:flex;align-items:center;justify-content:center;position:relative;border-bottom:1px solid var(--line)}
   .photo img{width:100%;height:100%;object-fit:contain;padding:10px;background:#fff}
   .photo-placeholder{font-size:12px;color:var(--muted);font-weight:500}
 
   .body{padding:15px;display:flex;flex-direction:column;gap:8px;flex:1}
-  
+
   /* Descrição do motor com destaque aprimorado */
   .card h3{font-size:16px;font-weight:700;color:var(--navy);line-height:1.3}
   .full{font-size:12px;color:var(--muted);line-height:1.4}
-  
+
   .code{font-size:11px;background:#eee;padding:2px 6px;border-radius:4px;display:inline-block;font-family:monospace;align-self:flex-start}
   .specs{font-size:12px;color:var(--muted);border-top:1px solid var(--line);padding-top:8px;margin-top:auto}
 
   .empty{text-align:center;color:var(--muted);padding:40px 0;display:none}
 
-  /* Rodapé com WhatsApp */
-  footer{background:var(--navy);color:#fff;padding:30px 0;margin-top:40px;font-size:13px}
-  .footer-content{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+  /* Rodapé */
+  footer{background:#1A1A1A;color:#fff;margin-top:40px;font-size:13px;border-top:4px solid var(--orange)}
+  .footer-top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px;padding:32px 20px}
+  .footer-brand{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .footer-logo{display:inline-block;background:#fff;padding:8px 14px;border-radius:8px}
+  .footer-logo img{height:56px;width:auto;display:block}
+  .footer-gpa{font-size:14px;line-height:1.4}
+  .footer-gpa .label{display:block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);margin-bottom:2px}
+  .footer-gpa a{color:var(--orange);font-weight:600;text-decoration:none;display:inline-block;margin-top:4px}
+  .footer-gpa a:hover{text-decoration:underline}
   .whatsapp-btn{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
   .whatsapp-btn:hover{background:#20ba5a}
+  .footer-bottom{border-top:1px solid #333;padding:14px 0;font-size:12px;color:#9A9A9A}
 </style>
 </head>
 <body>
@@ -84,6 +102,18 @@
     </div>
   </div>
 </header>
+
+<!-- Distribuidora Grupo GPA -->
+<div class="distrib">
+  <div class="wrap">
+    <div class="distrib-text">
+      <span class="label">Distribuidora</span>
+      <h2>Produtos distribuídos pelo Grupo GPA</h2>
+      <p>Todos os automatizadores deste catálogo são fornecidos pela distribuidora Grupo GPA.</p>
+    </div>
+    <a class="distrib-link" href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">Conheça a distribuidora →</a>
+  </div>
+</div>
 
 <div class="toolbar">
   <div class="wrap">
@@ -103,19 +133,28 @@
 <div class="wrap"><div class="empty" id="empty">Nenhum produto encontrado.</div></div>
 
 <footer>
-  <div class="wrap footer-content">
-    <div>
-      <p>Catálogo de revenda · Valores sujeitos a alteração sem aviso prévio.</p>
-      <p style="color:#aaa; font-size:12px; margin-top:4px;">PPA é marca de seu respectivo titular.</p>
+  <div class="wrap footer-top">
+    <div class="footer-brand">
+      <a class="footer-logo" href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">
+        <img src="https://www.grupogpa.com.br/wp-content/uploads/2025/11/Logotipo-GrupoGPA-em-PNG-722x1280-1.png" alt="Grupo GPA" onerror="this.parentElement.style.display='none'">
+      </a>
+      <p class="footer-gpa">
+        <span class="label">Distribuidora</span>
+        Produtos distribuídos pelo <b>Grupo GPA</b><br>
+        <a href="https://www.grupogpa.com.br/" target="_blank" rel="noopener">Conheça a distribuidora →</a>
+      </p>
     </div>
-    <a href="https://wa.me/5584920208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
-      Falar no WhatsApp (84) 92020-8889
+    <a href="https://wa.me/558420208889?text=Olá,%20gostaria%20de%20mais%20informações%20sobre%20os%20automatizadores." target="_blank" class="whatsapp-btn">
+      Falar no WhatsApp (84) 2020-8889
     </a>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap">Catálogo de revenda · Valores sujeitos a alteração sem aviso prévio. · PPA é marca de seu respectivo titular.</div>
   </div>
 </footer>
 
 <script>
-const LOGOS = ["https://www.ppa.com.br/_nuxt/logo.f9ff4513.png","logo-ppa.png"];
+const LOGOS = ["https://media.ppa.com.br/images/full/meta-image_1676494295824.png","https://www.ppa.com.br/_nuxt/logo.f9ff4513.png","logo-ppa.png"];
 
 const GROUPS = {
   ind:  {name:"Linha Industrial"},
@@ -168,23 +207,23 @@ function loadPhotos(){
   app.querySelectorAll("img[data-photo]").forEach(img=>{
     if (img.dataset.src) {
       img.src = img.dataset.src;
-      img.onload = () => { 
-        img.hidden = false; 
-        if (img.previousElementSibling) img.previousElementSibling.style.display = "none"; 
+      img.onload = () => {
+        img.hidden = false;
+        if (img.previousElementSibling) img.previousElementSibling.style.display = "none";
       };
       return;
     }
 
     const exts=["jpg","png","webp"]; let n=0;
-    const next=()=>{ 
-      if(n>=exts.length) return; 
-      img.src=`fotos/${img.dataset.photo}.${exts[n++]}`; 
+    const next=()=>{
+      if(n>=exts.length) return;
+      img.src=`fotos/${img.dataset.photo}.${exts[n++]}`;
     };
-    img.onload=()=>{ 
-      img.hidden = false; 
-      if (img.previousElementSibling) img.previousElementSibling.style.display = "none"; 
+    img.onload=()=>{
+      img.hidden = false;
+      if (img.previousElementSibling) img.previousElementSibling.style.display = "none";
     };
-    img.onerror = next; 
+    img.onerror = next;
     next();
   });
 }
@@ -192,7 +231,7 @@ function loadPhotos(){
 function render(){
   const q = query.trim().toLowerCase();
   let html = "", total = 0;
-  
+
   for(const key of ["ind","semi","res"]){
     if(filter !== "all" && filter !== key) continue;
     let items = P.filter(p => p.g === key && (!q || (p.name + " " + p.full + " " + p.code).toLowerCase().includes(q)));
